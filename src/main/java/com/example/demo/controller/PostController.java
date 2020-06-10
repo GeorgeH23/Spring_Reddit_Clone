@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.http.ResponseEntity.status;
+
 @RestController
 @RequestMapping("/api/posts/")
 @AllArgsConstructor
@@ -24,22 +26,22 @@ public class PostController {
     }
 
     @GetMapping
-    public List<PostResponse> getAllPosts() {
-        return postService.getAllPosts();
+    public ResponseEntity<List<PostResponse>> getAllPosts() {
+        return status(HttpStatus.OK).body(postService.getAllPosts());
     }
 
     @GetMapping("/{id}")
-    public PostResponse getPost(@PathVariable Long id) {
-        return postService.getPost(id);
+    public ResponseEntity<PostResponse> getPost(@PathVariable Long id) {
+        return status(HttpStatus.OK).body(postService.getPost(id));
     }
 
-    @GetMapping("/by-subreddit/{id}")
-    public List<PostResponse> getPostsBySubreddit(Long id) {
-        return postService.getPostsBySubreddit(id);
+    @GetMapping("by-subreddit/{id}")
+    public ResponseEntity<List<PostResponse>> getPostsBySubreddit(Long id) {
+        return status(HttpStatus.OK).body(postService.getPostsBySubreddit(id));
     }
 
-    @GetMapping("/by-user/{name}")
-    public List<PostResponse> getPostsByUsername(String username) {
-        return postService.getPostsByUsername(username);
+    @GetMapping("by-user/{name}")
+    public ResponseEntity<List<PostResponse>> getPostsByUsername(String username) {
+        return status(HttpStatus.OK).body(postService.getPostsByUsername(username));
     }
 }

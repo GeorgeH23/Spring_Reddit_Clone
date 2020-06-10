@@ -9,9 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
-
 import static java.util.stream.Collectors.toList;
 
 @Service
@@ -24,10 +22,8 @@ public class SubredditService {
 
     @Transactional
     public SubredditDto save(SubredditDto subredditDto) {
-        Subreddit subreddit = subredditMapper.mapDtoToSubreddit(subredditDto);
-        Subreddit save = subredditRepository.save(subreddit);
+        Subreddit save = subredditRepository.save(subredditMapper.mapDtoToSubreddit(subredditDto));
         subredditDto.setId(save.getId());
-
         return subredditDto;
     }
 
@@ -44,18 +40,4 @@ public class SubredditService {
                 .orElseThrow(() -> new SpringRedditException("No subreddit found with ID - " + id));
         return subredditMapper.mapSubredditToDto(subreddit);
     }
-
-    // Removed and replaced with the methods in SubredditMapper
-    /*private SubredditDto mapToDto(Subreddit subredditDto) {
-        return SubredditDto.builder().name(subredditDto.getName())
-                .description(subredditDto.getDescription())
-                .build();
-    }
-
-    private Subreddit mapSubredditDto(SubredditDto subredditDto) {
-        return Subreddit.builder().name(subredditDto.getName())
-                .description(subredditDto.getDescription())
-                .build();
-
-    }*/
 }

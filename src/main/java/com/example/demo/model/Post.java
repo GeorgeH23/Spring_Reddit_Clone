@@ -5,9 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.Instant;
+
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -32,7 +34,7 @@ public class Post {
     @Lob
     private String description;
 
-    private Integer voteCount;
+    private Integer voteCount = 0;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "userId", referencedColumnName = "userId")
@@ -43,5 +45,4 @@ public class Post {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Subreddit subreddit;
-
 }

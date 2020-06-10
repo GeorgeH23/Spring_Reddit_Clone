@@ -16,8 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
 
+import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 @Service
@@ -32,12 +32,10 @@ public class PostService {
     private final AuthService authService;
     private final PostMapper postMapper;
 
-    public Post save(PostRequest postRequest) {
+    public void save(PostRequest postRequest) {
         Subreddit subreddit = subredditRepository.findByName(postRequest.getSubredditName())
                 .orElseThrow(() -> new SubredditNotFoundException(postRequest.getSubredditName()));
-        User currentUser = authService.getCurrentUser();
-
-        return postMapper.map(postRequest, subreddit, currentUser);
+        postRepository.save(postMapper.map(postRequest, subreddit, authService.getCurrentUser()));
     }
 
     @Transactional(readOnly = true)
