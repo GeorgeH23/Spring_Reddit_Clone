@@ -15,4 +15,9 @@ public class PostResponse {
     private String description;
     private String userName;
     private String subredditName;
+    // new fields
+    private Integer voteCount;
+    private Integer commentCount;
+    // calculated with timeago library
+    private String duration;
 }

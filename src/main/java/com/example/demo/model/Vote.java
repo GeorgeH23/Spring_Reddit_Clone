@@ -21,7 +21,7 @@ public class Vote {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Long voterId;
+    private Long voteId;
 
     private VoteType voteType;
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface VoterRepository extends JpaRepository<Vote, Long> {
-    Optional<Vote> findTopByPostAndUserOrderByVoterIdDesc(Post post, User currentUser);
+public interface VoteRepository extends JpaRepository<Vote, Long> {
+
+    Optional<Vote> findTopByPostAndUserOrderByVoteIdDesc(Post post, User currentUser);
 }
