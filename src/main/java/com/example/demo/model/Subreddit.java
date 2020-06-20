@@ -14,10 +14,10 @@ import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
-@Entity
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Builder
 public class Subreddit {
 
     @Id

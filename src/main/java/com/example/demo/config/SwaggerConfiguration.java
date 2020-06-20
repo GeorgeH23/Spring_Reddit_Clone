@@ -15,9 +15,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfiguration {
 
-    // A Docket is a brief statement about the contents of the document.
     @Bean
-    public Docket reddotCloneApi() {
+    public Docket redditCloneApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
@@ -31,9 +30,8 @@ public class SwaggerConfiguration {
                 .title("Reddit Clone API")
                 .version("1.0")
                 .description("API for Reddit Clone Application")
-                .contact(new Contact("George Harpa", "https://github.com/GeorgeH23",  "xyz@email.com"))
+                .contact(new Contact("Sai Upadhyayula", "http://programmingtechie.com", "xyz@email.com"))
                 .license("Apache License Version 2.0")
                 .build();
     }
-
 }

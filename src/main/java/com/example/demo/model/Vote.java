@@ -16,7 +16,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Entity
 @Builder
-
 public class Vote {
 
     @Id

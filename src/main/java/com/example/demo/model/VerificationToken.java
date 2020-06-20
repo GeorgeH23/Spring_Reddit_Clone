@@ -13,7 +13,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Entity
 @Table(name = "token")
-
 public class VerificationToken {
 
     @Id
@@ -26,5 +25,4 @@ public class VerificationToken {
     private User user;
 
     private Instant expiryDate;
-
 }

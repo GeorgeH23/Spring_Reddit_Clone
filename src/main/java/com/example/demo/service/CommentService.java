@@ -11,7 +11,6 @@ import com.example.demo.repository.CommentRepository;
 import com.example.demo.repository.PostRepository;
 import com.example.demo.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +20,6 @@ import static java.util.stream.Collectors.toList;
 
 @Service
 @AllArgsConstructor
-@Slf4j
 public class CommentService {
 
     private static final String POST_URL = "";
