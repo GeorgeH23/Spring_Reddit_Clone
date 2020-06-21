@@ -25,6 +25,7 @@ public class SwaggerConfiguration {
                 .apiInfo(getApiInfo());
     }
 
+    // Link to generated documentation: http://localhost:8080/swagger-ui.html#/
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder()
                 .title("Reddit Clone API")
