@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dto.CommentsDto;
 import com.example.demo.exceptions.PostNotFoundException;
+import com.example.demo.exceptions.SpringRedditException;
 import com.example.demo.mapper.CommentMapper;
 import com.example.demo.model.Comment;
 import com.example.demo.model.NotificationEmail;
@@ -59,5 +60,12 @@ public class CommentService {
                 .stream()
                 .map(commentMapper::mapToDto)
                 .collect(toList());
+    }
+
+    public boolean containsSwearWords(String comment) {
+        if (comment.contains("shit")) {
+            throw new SpringRedditException("Comments contains unacceptable language");
+        }
+        return false;
     }
 }
